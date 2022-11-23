@@ -2,8 +2,8 @@ test_dataset:
   dataset:
     name: paired-image-folders
     args:
-      root_path_1: ./load/SET_14_SRF_2/LRbicx2
-      root_path_2: ./load/SET_14_SRF_2/GTmod2
+      root_path_1: ./load/SET_14_X2/LR
+      root_path_2: ./load/SET_14_X2/GT
 
   wrapper:
     name: sr-implicit-paired
