@@ -2,6 +2,7 @@ import argparse
 import os
 import math
 from functools import partial
+from torchvision import transforms
 
 import yaml
 import torch

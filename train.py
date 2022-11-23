@@ -28,7 +28,7 @@ def make_data_loader(spec, tag=''):
         log('  {}: shape={}'.format(k, tuple(v.shape)))
 
     loader = DataLoader(dataset, batch_size=spec['batch_size'],
-        shuffle=(tag == 'train'), num_workers=8, pin_memory=True)
+        shuffle=(tag == 'train'), num_workers=1, pin_memory=True)   # Changed number of workers since ram was not enough
     return loader
 
 

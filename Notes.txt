@@ -1,0 +1,15 @@
+Demo is not generating nice results, but PSNR from test makes sense.
+Using x2
+Testing: python test.py --config configs/test/test-div2k-2.yaml --model save/pretrained_swinir_lte.pth --window 8 --gpu 0
+Training: python train.py --config configs/train-div2k/train_swinir-lte.yaml --gpu 0
+
+
+
+Things we changed:
+lib to Lib in one directory of anaconda
+number of workers of the data loader to a smaller value so that it would fit in the regular ram
+batch size of the inputs at training so that it fits into our GPU RAM
+number of repeats of the training and validation datasets so that training would be faster
+Reduced the number of heads and their depths for a smaller model
+reduced the number of training images to make training faster. Shouldn't over fit since it is a generative model
+Using div2k for training, set14 for validation and also testing. Perhaps, we can use another portion of div2k for validation?

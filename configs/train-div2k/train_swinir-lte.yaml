@@ -2,8 +2,8 @@ train_dataset:
   dataset:
     name: image-folder
     args:
-      root_path: ./load/div2k/DIV2K_train_HR
-      repeat: 20
+      root_path: ./load/DIV2K/DIV2K_train_HR
+      repeat: 1     # reduced from 20 to make training faster
       cache: in_memory
   wrapper:
     name: sr-implicit-downsampled
@@ -12,15 +12,15 @@ train_dataset:
       scale_max: 4
       augment: true
       sample_q: 2304
-  batch_size: 32
+  batch_size: 4      # Reduced from 32 batch due to GPU RAM
 
 val_dataset:
   dataset:
     name: image-folder
     args:
-      root_path: ./load/div2k/DIV2K_valid_HR
+      root_path: ./load/SET_14_SRF_2/GTmod2
       first_k: 10
-      repeat: 160
+      repeat: 5     # Reduced from 160 to make the training faster
       cache: in_memory
   wrapper:
     name: sr-implicit-downsampled
@@ -28,7 +28,7 @@ val_dataset:
       inp_size: 48
       scale_max: 4
       sample_q: 2304
-  batch_size: 32
+  batch_size: 4     # Reduce from 32 due to GPU RAM
 
 data_norm:
   inp: {sub: [0.5], div: [0.5]}
