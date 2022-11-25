@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 
 def running_average(x, y, N):
     y_ = np.convolve(y, np.ones(N)/N, mode='valid')
@@ -7,12 +8,17 @@ def running_average(x, y, N):
     return x_, y_
 
 
-log_directories = ['Training Trials/2e-4_train_swinir-lte', 'Training Trials/5e-5_train_swinir-lte', 'Training Trials/1e-3_train_swinir-lte']
+log_directories = [
+                    # '1e-3_4x6_300_train_swinir-lte', 
+                    '2e-4_4x6_300_train_swinir-lte', 
+                    # '5e-5_4x6_300_train_swinir-lte', 
+                    '2e-4_2x6_900_train_swinir-lte'
+                    ]
 all_losses = []
 all_psnrs = []
 for log in log_directories:
-    lr = log[16:20]                                     # Get lr from folder name
-    log_file = open(log + '/log.txt', "r")              # Open log.txt
+    descriptor = log[0:12]                                     # Get lr from folder name
+    log_file = open(os.path.join('Training Trials', log, 'log.txt'), "r")              # Open log.txt
     log = log_file.readlines()
     losses_over_epochs = []
     epochs = []
@@ -28,23 +34,23 @@ for log in log_directories:
             psnrs.append(psnr)
 
     log_file.close()                                    # Close the file when done reading it
-    all_losses.append((lr, epochs, losses_over_epochs))
-    all_psnrs.append((lr, epochs, psnrs))
+    all_losses.append((descriptor, epochs, losses_over_epochs))
+    all_psnrs.append((descriptor, epochs, psnrs))
 
 # Loss plot
-for lr, epochs, losses_over_epochs in all_losses:
-    plt.plot(epochs, losses_over_epochs, label=lr)
+for descriptor, epochs, losses_over_epochs in all_losses:
+    plt.plot(epochs, losses_over_epochs, label=descriptor)
     N = 20
     epoch_average, loss_average = running_average(epochs, losses_over_epochs, N)
-    plt.plot(epoch_average, loss_average, label=str(lr) + ' over ' + str(N))
+    plt.plot(epoch_average, loss_average, label=str(descriptor) + ' over ' + str(N))
 plt.legend()
 plt.show()
 
 # PSNR plot
-for lr, epochs, psnrs in all_psnrs:
-    plt.plot(epochs, psnrs, label=lr)
+for descriptor, epochs, psnrs in all_psnrs:
+    plt.plot(epochs, psnrs, label=descriptor)
     N = 20
     epoch_average, psnr_average = running_average(epochs, psnrs, N)
-    plt.plot(epoch_average, psnr_average, label=str(lr) + ' over ' + str(N))
+    plt.plot(epoch_average, psnr_average, label=str(descriptor) + ' over ' + str(N))
 plt.legend()
 plt.show()

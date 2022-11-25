@@ -14,3 +14,15 @@ Number of repeats of the training and validation datasets to 1 so that training 
 Reduced the number of heads and their depths for a smaller model
 Using DIV2K: 300 for training, 60 for validation. Number of images shouldn't cause overfitting since it is a generative model. 20-80% is a common ratio for validation.
 Using SET14 for testing (PSNR calculation)
+
+
+Tried Overfitting over a small dataset, but it didn't work (loss osciallates from the start regardless of LR). 
+	-> Perhaps that is because we have the regularization terms?
+
+2e-4 starts off good, but then stops getting better. 
+	-> Not sure if that means it was too high and converged to a bad minima, or if it was too low and only got through the first steep part.
+
+Tried using the downsampled images, but it didn't seem to speed it up, and still couldn't use higher batch size?
+
+Tried using 900 images for training, but just [6, 6] as opposed to [6, 6, 6, 6] and with lr=2e-4
+	-> Seems comparable but more stable. Also, it may have benefited from an LR drop at 100. Try that maybe?
