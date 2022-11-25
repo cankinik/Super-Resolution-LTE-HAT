@@ -100,7 +100,7 @@ def train(train_loader, model, optimizer, \
         writer.add_scalars('loss', {'train': loss.item()}, (epoch-1)*iter_per_epoch + iteration)
         writer.add_scalars('psnr', {'train': psnr}, (epoch-1)*iter_per_epoch + iteration)
         iteration += 1
-        
+
         train_loss.add(loss.item())
 
         optimizer.zero_grad()

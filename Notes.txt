@@ -3,6 +3,7 @@ Using x2
 Testing: python test.py --config configs/test/test-div2k-2.yaml --model save/_train_swinir-lte/epoch-best.pth --window 8 --gpu 0 
 Training: python train.py --config configs/train-div2k/train_swinir-lte.yaml --gpu 0
 If you want to test with the pretrained weights, change the number of heads and their depths, and use the appropriate pth.
+We should think about selecting a different learning rate (ask the prof if we should try larger or lower), and perhaps reducing epoch but increasing network size.
 
 
 Things we changed:

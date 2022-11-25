@@ -12,15 +12,15 @@ train_dataset:
       scale_max: 4
       augment: true
       sample_q: 2304
-  batch_size: 4      # Reduced from 32 batch due to GPU RAM
+  batch_size: 5      # Reduced from 32 batch due to GPU RAM
 
 val_dataset:
   dataset:
     name: image-folder
     args:
       root_path: ./load/DIV2K/Validation_HR
-      first_k: 10
-      repeat: 5     # Reduced from 160 to make the training faster
+      # first_k: 10 # Use all 60
+      repeat: 1     # Reduced from 160 to make the training faster
       cache: in_memory
   wrapper:
     name: sr-implicit-downsampled
@@ -28,7 +28,7 @@ val_dataset:
       inp_size: 48
       scale_max: 4
       sample_q: 2304
-  batch_size: 4     # Reduce from 32 due to GPU RAM
+  batch_size: 5     # Reduce from 32 due to GPU memory constraints
 
 data_norm:
   inp: {sub: [0.5], div: [0.5]}
@@ -51,13 +51,13 @@ model:
 optimizer:
   name: adam
   args:
-    lr: 2.e-4
-epoch_max: 1000
+    lr: 1.e-3     # Used to be 2e-4.
+epoch_max: 500    # Used to be 1000, made it less for shorter training
 multi_step_lr:
-  milestones: [500, 800, 900, 950]
+  milestones: [100, 200, 300, 400]  # Adjusted the scheduler appropriately with the max epochs
   gamma: 0.5
 
 epoch_val: 1
-epoch_save: 100
+epoch_save: 20    # Changed to save more frequently
 
 resume: ./save/_train_swinir-lte/epoch-last.pth
