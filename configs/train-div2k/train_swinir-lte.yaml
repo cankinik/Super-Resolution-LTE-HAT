@@ -2,7 +2,7 @@ train_dataset:
   dataset:
     name: image-folder
     args:
-      root_path: ./load/DIV2K/Training_HR_Small                         
+      root_path: ./load/DIV2K/Training_HR                       
       repeat: 1     # reduced from 20 to make training faster
       cache: in_memory
   wrapper:
