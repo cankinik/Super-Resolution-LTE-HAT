@@ -648,8 +648,8 @@ class SwinIR(nn.Module):
     """
 
     def __init__(self, img_size=48, patch_size=1, in_chans=3,
-                #  embed_dim=180, depths=[6, 6, 6, 6, 6, 6], num_heads=[6, 6, 6, 6, 6, 6],
-                 embed_dim=180, depths=[6, 6], num_heads=[6, 6],            # We found that this gives us a good balance between reducing performance but hastening training
+                 embed_dim=180, depths=[6, 6, 6, 6, 6, 6], num_heads=[6, 6, 6, 6, 6, 6],              # Trying the full model to see how it fares
+                #  embed_dim=180, depths=[2, 2, 2, 2, 2, 2], num_heads=[2, 2, 2, 2, 2, 2],            # Making the model smaller
                  window_size=8, mlp_ratio=2., qkv_bias=True, qk_scale=None,
                  drop_rate=0., attn_drop_rate=0., drop_path_rate=0.1,
                  norm_layer=nn.LayerNorm, ape=False, patch_norm=True,
