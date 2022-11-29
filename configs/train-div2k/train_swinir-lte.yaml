@@ -2,7 +2,7 @@ train_dataset:
   dataset:
     name: image-folder
     args:
-      root_path: ./load/DIV2K/Training_HR_Small                         
+      root_path: ./load/DIV2K/Training_HR_Medium                        
       repeat: 1     # reduced from 20 to make training faster
       cache: in_memory
   wrapper:
@@ -18,8 +18,8 @@ val_dataset:
   dataset:
     name: image-folder
     args:
-      root_path: ./load/DIV2K/Validation_HR             
-      # first_k: 10 # Use all 60
+      root_path: ./load/DIV2K/Validation_HR          
+      # first_k: 10 # Use all 16
       repeat: 1     # Reduced from 160 to make the training faster
       cache: in_memory
   wrapper:
@@ -52,12 +52,12 @@ optimizer:
   name: adam
   args:
     lr: 2.e-4     # Used to be 2e-4.
-epoch_max: 500    # Used to be 1000, made it less for shorter training
+epoch_max: 350    # Used to be 1000, made it less for shorter training
 multi_step_lr:
-  milestones: [500]  # Adjusted the scheduler appropriately with the max epochs
+  milestones: [200, 300, 330]  # Adjusted the scheduler appropriately with the max epochs
   gamma: 0.5
 
-epoch_val: 10     # Validate less frequently to save time
-epoch_save: 10    # Changed to save more frequently
+epoch_val: 1       # Change the frequency of validation to be higher towards the end, and lower in the beginning
+epoch_save: 20     # Changed to save more frequently
 
 resume: ./save/_train_swinir-lte/epoch-last.pth
