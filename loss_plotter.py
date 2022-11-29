@@ -13,10 +13,11 @@ log_directories = [
                     # '1e-3_4x6_300_train_swinir-lte', 
                     # '2e-4_4x6_300_train_swinir-lte', 
                     # '2e-4_6x6_300_train_swinir-lte', 
-                    '2e-4_2x6_600_train_swinir-lte',
+                    # '2e-4_2x6_600_train_swinir-lte',
                     '2e-4_3x6_600_Final_SwinIR_train_swinir-lte',
+                    '2e-4_3x6_600_Final_HAT_train_hat-lte'
                     # '5e-5_4x6_300_train_swinir-lte', 
-                    '2e-4_2x6_900_train_swinir-lte'
+                    # '2e-4_2x6_900_train_swinir-lte'
                     # '2e-4_6x2_900_train_swinir-lte'
                     ]
 all_losses = []
