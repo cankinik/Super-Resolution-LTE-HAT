@@ -2,11 +2,7 @@
 
 This repository holds the content for the class project we carried out for EECS 504 @ University of Michigan, Ann Arbor.
 
-It includes modifications over the original LTE paper given below:
-
-
-
-
+It includes modifications to the LTE model, by incorporating ideas from HAT on top of the SwinIR that is used as the encoder block.
 
 ## Acknowledgements
 This code is built on LTE: 
