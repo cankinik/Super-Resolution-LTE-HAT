@@ -13,6 +13,6 @@ This code is built on LTE:
 [**Local Texture Estimator for Implicit Representation Function**](https://ipl.dgist.ac.kr/LTE_cvpr.pdf) (CVPR 2022)
 
 It also incorporates ideas and pieces of code from HAT:
-[[Paper Link]](https://arxiv.org/abs/2205.04437) [![Replicate](https://replicate.com/cjwbw/hat/badge)](https://replicate.com/cjwbw/hat)
+[[Paper Link]](https://arxiv.org/abs/2205.04437) 
 
 We thank the authors for sharing their codes.
