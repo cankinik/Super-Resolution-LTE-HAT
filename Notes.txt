@@ -1,3 +1,6 @@
+Test datasets: https://github.com/ChaofWang/Awesome-Super-Resolution/blob/master/dataset.md
+Training datasets: https://cv.snu.ac.kr/research/EDSR/DIV2K.tar
+
 Demo is not generating nice results, but PSNR from test makes sense.
 Using x2
 Testing: python test.py --config configs/test/test-div2k-2.yaml --model save/_train_swinir-lte/epoch-best.pth --window 8 --gpu 0 
@@ -31,15 +34,15 @@ Tried using 900 images but this time with [2, 2, 2, 2, 2, 2] and with lr=2e-4
 Look into the input image size: Are we actually giving it 3x48x48 images? If so, we should either bump it up, or use another dataset.
 
 Final results: 
+
 Set 14:
 HAT: 31.4894, SwinIR: 31.4325
 
-
-Set5
-HAT: #, SwinIR: 35.6228
-
 Urban 100:
-HAT: #, SwinIR: 29.5829
+HAT: 29.6883, SwinIR: 29.5829
+
+BSD 100:
+HAT: 30.6588, SwinIR: 30.6286
 
 
 
