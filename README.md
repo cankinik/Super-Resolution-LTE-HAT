@@ -4,7 +4,8 @@ This repository holds the content for the class project we carried out for EECS 
 
 It includes modifications to the LTE model, by incorporating ideas from HAT on top of the SwinIR that is used as the encoder block.
 
-Video: https://youtu.be/b_8wtC5PHmg
+Video: https://www.youtube.com/watch?v=BBHTCdUwZ0E
+Paper: Included in files
 
 ## Acknowledgements
 This code is built on LTE: 
