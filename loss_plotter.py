@@ -9,13 +9,13 @@ def running_average(x, y, N):
 
 
 log_directories = [
-                        '1e-4_4x6_300_LTE-SwinIR',
-                        '2e-4_2x6_600_LTE-SwinIR', 
-                        '2e-4_2x6_900_LTE-SwinIR', 
+                        # '1e-4_4x6_300_LTE-SwinIR',
+                        # '2e-4_2x6_600_LTE-SwinIR', 
+                        # '2e-4_2x6_900_LTE-SwinIR', 
                         '2e-4_3x6_600_LTE-HAT_Final',
                         '2e-4_3x6_600_LTE-SwinIR_Final',
-                        '2e-4_6x2_900_LTE-SwinIR',
-                        '2e-4_6x6_300_LTE-SwinIR',
+                        # '2e-4_6x2_900_LTE-SwinIR',
+                        # '2e-4_6x6_300_LTE-SwinIR',
                         '5e-5_4x6_300_LTE-SwinIR' 
                   ]
 
@@ -39,7 +39,7 @@ for log in log_directories:
     all_losses.append((descriptor, epochs, losses_over_epochs))
 
 # Loss plot
-N = 30
+N = 50
 for descriptor, epochs, losses_over_epochs in all_losses:
     # plt.plot(epochs, losses_over_epochs, label=descriptor)    # Raw data
     epoch_average, loss_average = running_average(epochs, losses_over_epochs, N)
